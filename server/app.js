@@ -25,7 +25,6 @@ app.get("/:zip", async (req, res, next) => {
     res.render("data", { zip, data: null });
     return;
   }
-  console.log(data);
   res.render("data", { data, zip });
 });
 

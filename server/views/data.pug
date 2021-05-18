@@ -22,7 +22,7 @@ block content
                         p= location.details.serves
                         h5.font-bold Located at:
                         p= location.details.address
-                        a(href=location.details.googleMapUrl target="_blank") Get Directions
+                        a.font-mono.underline.hover_bg-gray-600(href=location.details.googleMapUrl target="_blank") Get Directions
                         if location.details.contactInfo
                             h5.font-bold Contact:
                             p= location.details.contactInfo
