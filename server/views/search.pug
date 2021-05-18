@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+    div.mx-auto.w-11_12
+        form.mb-6.flex.flex-col.gap-4.max-w-2xl.mx-auto(action="", method="post") 
+            input.text-center.rounded.py-2.px-4(type="text" placeholder="Zip or City Name" name="zip")
+            button.mx-auto.max-w-lg.rounded.py-2.px-4.bg-blue-200.hover_bg-blue-400.transition-all(type="submit") Find Vax. 
+        p.font-mono.mx-auto.text-center Note: It takes a moment to fetch data after submitting a search.
+
+    section.mt-8.max-w-prose.mx-auto.w-10_12
+
+        div.mb-6
+            h4.text-lg.font-bold About 
+            p
+            | Data comes from the 
+            a.hover_fg-gray-700.hover_underline.font-bold.font-mono(href="https://vaxfinder.mass.gov" target="_blank") Massachusetts VaxFinder
+            |  and is fetched per request. There are no guarantees. If you want faster results use the VaxFinder directly. Do not contact me about incorrect data, take that up with Massachusetts directly.
+
+        div.mb-6
+            h5.text-lg.font-bold Details 
+            p 
+            |Requests scrape data using 
+            a.hover_fg-gray-700.hover_underline.font-bold.font-mono(href="https://github.com/jsdom/jsdom", target="_blank", rel="noopener noreferrer") JSDOM
+            |  on the server side in node.
+            p 
+            | You can find the code on my 
+            a.hover_fg-gray-700.hover_underline.font-bold.font-mono(href="https://github.com/knapptr/mavax",target="_blank",rel="noopener noreferrer") GitHub
+            | .

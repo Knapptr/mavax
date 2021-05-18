@@ -1,0 +1,30 @@
+{
+  "name": "MAVAX",
+  "engines": {
+    "node": "14.x"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "postcss server/public/styles/tailwind.css -o server/public/styles/style.css",
+    "build": "NODE_ENV=production npm run tailwind",
+    "start": "node server/app.js"
+  },
+  "author": "Tyler Knapp <knapptr@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "express": "^4.17.1",
+    "jsdom": "^16.5.3",
+    "node-fetch": "^2.6.1",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "pug": "^3.0.2",
+    "tailwindcss": "^2.1.2"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^16.2.10"
+  }
+}

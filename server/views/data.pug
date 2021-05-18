@@ -1,0 +1,38 @@
+extends layout.pug
+
+block content
+
+    h2.text-lg.font-bold Available Vaccines near #{zip}:
+    div.mb-2 
+        h3.font-bold Search Elsewhere
+        form.flex.gap-2(action="/", method="post") 
+            input.text-center.rounded.py-2.px-4(type="text", name="zip",placeholder="Zip or City Name")
+            button.rounded.py-2.px-4.bg-blue-200.hover_bg-blue-400.transition-all(type="submit") Search 
+    if data
+        ul.flex.flex-wrap.justify-center.py-4.px-bg-gray-300.rounded.gap-4
+            each location in data
+                li.flex-grow.flex.flex-col.w_full.sm_w-56.py-4.px-3.bg-gray-600.text-gray-50.rounded.shadow-lg.gap-3
+
+                    header.mb-3  
+                        h2.font-mono.font-bold.text-xl.text-white #{location.cityName}
+                        a.underline.font-bold.hover_text-purple-300(href=location.url,target="_blank")=location.placeName
+                        p.font-mono #{location.distance} miles away
+                    div
+                        h5.font-bold Serving:
+                        p= location.details.serves
+                        h5.font-bold Located at:
+                        p= location.details.address
+                        a(href=location.details.googleMapUrl target="_blank") Get Directions
+                        if location.details.contactInfo
+                            h5.font-bold Contact:
+                            p= location.details.contactInfo
+                        h5.font-bold Offering: 
+                        ul 
+                            each vax in location.details.offering 
+                                li.font-mono= vax
+                    a.block.flex-grow.flex.flex-col.justify-end(href=location.details.scheduleUrl target="_blank") 
+                        button.py-2.px-4.block.mx-auto.bg-blue-200.text-black.font-bold.rounded.hover_underline.hover_bg-blue-600.transition-all Register Now
+    else 
+        h3.font-bold.font-mono No results found...
+
+

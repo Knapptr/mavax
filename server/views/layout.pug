@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title MA VAX 💉
+        link(rel="stylesheet", href="./styles/style.css")
+    body.flex.flex-col.bg-gray-400
+        header.mb-6.bg-gray-300.py-4.px-2
+            h1.text-blue-500.text-3xl.font-bold.max-w-6xl.mx-auto
+                a(href="/") MA VAX 💉
+        
+        div.flex-grow.max-w-5xl.mx-auto.w-11_12
+            block content
+
+        include ./footer.pug
