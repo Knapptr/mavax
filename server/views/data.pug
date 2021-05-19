@@ -5,9 +5,16 @@ block content
     h2.text-lg.font-bold Available Vaccines near #{zip}:
     div.mb-2 
         h3.font-bold Search Elsewhere
-        form.flex.gap-2(action="/", method="post") 
+        form.flex.gap-2(action="/", method="post",onsubmit=`
+        const subButton = document.getElementById("sub");
+        subButton.innerText = "searching...";
+        subButton.classList.add("animate-bounce");
+        subButton.classList.remove("bg-blue-200");
+        subButton.classList.remove("hover_bg-blue-400");
+        subButton.classList.add("bg-green-500")`
+) 
             input.text-center.rounded.py-2.px-4(type="text", name="zip",placeholder="Zip or City Name")
-            button.rounded.py-2.px-4.bg-blue-200.hover_bg-blue-400.transition-all(type="submit") Search 
+            button#sub.rounded.py-2.px-4.bg-blue-200.hover_bg-blue-400.transition-all(type="submit") Search 
     if data
         ul.flex.flex-wrap.justify-center.py-4.px-bg-gray-300.rounded.gap-4
             each location in data
