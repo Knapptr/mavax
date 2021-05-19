@@ -2,9 +2,17 @@ extends layout.pug
 
 block content
     div.mx-auto.w-11_12
-        form.mb-6.flex.flex-col.gap-4.max-w-2xl.mx-auto(action="", method="post") 
+        form.mb-6.flex.flex-col.gap-4.max-w-2xl.mx-auto(action="", method="post",onsubmit=`
+        const subButton = document.getElementById("sub");
+        subButton.innerText = "searching...";
+        subButton.classList.add("animate-bounce");
+        subButton.classList.remove("bg-blue-200");
+        subButton.classList.remove("hover_bg-blue-400");
+        subButton.classList.add("bg-green-500")
+
+        `)
             input.text-center.rounded.py-2.px-4(type="text" placeholder="Zip or City Name" name="zip")
-            button.mx-auto.max-w-lg.rounded.py-2.px-4.bg-blue-200.hover_bg-blue-400.transition-all(type="submit") Find Vax. 
+            button#sub.mx-auto.max-w-lg.rounded.py-2.px-4.bg-blue-200.hover_bg-blue-400.transition-all(type="submit") Find Vax. 
         p.font-mono.mx-auto.text-center Note: It takes a moment to fetch data after submitting a search.
 
     section.mt-8.max-w-prose.mx-auto.w-10_12
